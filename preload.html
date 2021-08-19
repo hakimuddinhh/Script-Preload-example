@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Execute Javascript after 5s unlike Async, Defer</title>
+    <link rel="preload" href="https://code.jquery.com/jquery-3.6.0.js" as="script" onload="console.log('yay')" onerror="console.log('noooo')">
+
+
+</head>
+<body>
+    BODY
+</body>
+
+<script>
+    setTimeout(() => {
+
+  // Later on, after some condition has been met, we run the preloaded
+  // JavaScript by inserting a <script> tag into the DOM.
+  var usedLaterScript = document.createElement('script');
+  usedLaterScript.src = 'https://code.jquery.com/jquery-3.6.0.js';    
+  document.body.appendChild(usedLaterScript);
+  console.log('Executed');
+
+    }, 5000)
+</script>
+
+</html>
